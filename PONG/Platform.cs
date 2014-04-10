@@ -7,6 +7,8 @@ public class Platform : IRenderable, IUpdateable
     public Vec2 pos1;
     public Vec2 pos2;
     public IController controller;
+    public int score = 0;
+
     public Platform(Vec2 pos1, Vec2 pos2, IController cont)
     {
         this.pos1 = pos1;
