@@ -2,7 +2,7 @@
 using VitPro;
 using VitPro.Engine;
 
-class Robot : IRenderable, IUpdateable
+public class Robot : IRenderable, IUpdateable
 {
     Platform plat;
 

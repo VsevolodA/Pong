@@ -2,7 +2,7 @@
 using VitPro;
 using VitPro.Engine;
 
-class Ball : State
+public class Ball : State
 {
     public Vec2 pos;
     public double radius;

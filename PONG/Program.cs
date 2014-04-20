@@ -2,7 +2,7 @@
 using VitPro;
 using VitPro.Engine;
 
-class Program
+public class Program
 {
     static void Main(string[] args)
     {

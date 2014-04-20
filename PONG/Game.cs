@@ -2,7 +2,7 @@
 using VitPro;
 using VitPro.Engine;
 
-class Game : State
+public class Game : State
 {
     public Camera cam = new Camera(240);
 
@@ -42,8 +42,8 @@ class Game : State
         {
             ball.go(dt);
             world();
-            meeting(plat1);
-            meeting(plat2);
+            plat1.isCollide(ball);
+            plat2.isCollide(ball);
             goal();
         }
 
@@ -62,18 +62,7 @@ class Game : State
             ball.to = new Vec2(-1, 1);
         }
     }
-
-    void meeting(Platform platform)
-    {
-        if (ball.pos.Y <= platform.pos2.Y &&
-            ball.pos.Y >= platform.pos1.Y &&
-            Math.Abs(ball.pos.X - platform.pos2.X) <= ball.radius)
-        {
-
-            ball.to = new Vec2(-platform.pos1.X / platform.pos1.Length, ball.to.Y);
-            //ball.color = Color.Yellow;
-        }
-    }
+    
     bool isGoal = false;
     void goal()
     {
