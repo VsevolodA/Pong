@@ -8,8 +8,8 @@ public class Game : State
 
     public static Font font = new Font("./Fonts/arial.ttf", 25);
 
-    static public Platform plat1 = new Platform(new Vec2(-100, -20), new Vec2(-80, 20), new Controller1());
-    static public Platform plat2 = new Platform(new Vec2(100, -20), new Vec2(80, 20), new Controller2());
+    static public Platform plat1 = new Platform(new Vec2(-90, 0), new Vec2(10, 20), new Controller1());
+    static public Platform plat2 = new Platform(new Vec2(90, 0), new Vec2(10, 20), new Controller2());
 
     static public Ball ball = new Ball(new Vec2(0, 0), 12);
 
@@ -22,7 +22,7 @@ public class Game : State
         ball.Render();
         plat1.Render();
         plat2.Render();
-
+        
         Draw.Save();
         Draw.Translate(new Vec2(-30, 108));
         Draw.Scale(12);
