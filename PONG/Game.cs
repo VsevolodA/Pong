@@ -8,27 +8,34 @@ public class Game : State
 
     public static Font font = new Font("./Fonts/arial.ttf", 25);
 
-    static public Platform plat1 = new Platform(new Vec2(-90, 0), new Vec2(10, 20), new Controller1());
-    static public Platform plat2 = new Platform(new Vec2(90, 0), new Vec2(10, 20), new Controller2());
+    static public Platform plat1 = new Platform(new Vec2(-90, 0), new Vec2(5, 15), new Controller1());
+    static public Platform plat2 = new Platform(new Vec2(90, 0), new Vec2(5, 15), new Controller2());
 
-    static public Ball ball = new Ball(new Vec2(0, 0), 12);
+    static public Ball ball = new Ball(new Vec2(0, 0), 8);
 
-    public override void Render()
+    public void score()
     {
-        cam.Apply();
-        Draw.Clear(Color.Black);
-        Draw.Rect(new Vec2(-150, -110), new Vec2(150, 110), Color.Green);
-        Draw.Rect(new Vec2(-145, -105), new Vec2(145, 105), Color.White);
-        ball.Render();
-        plat1.Render();
-        plat2.Render();
-        
         Draw.Save();
         Draw.Translate(new Vec2(-30, 108));
         Draw.Scale(12);
         Draw.Color(Color.White);
         font.Render(plat1.score.ToString() + " : " + plat2.score.ToString());
         Draw.Load();
+    }
+
+    public override void Render()
+    {
+        cam.Apply();
+
+        Draw.Clear(Color.Black);
+        Draw.Rect(new Vec2(-150, -110), new Vec2(150, 110), Color.Green);
+        Draw.Rect(new Vec2(-145, -105), new Vec2(145, 105), Color.White);
+
+        ball.Render();
+        plat1.Render();
+        plat2.Render();
+
+        score();
     }
 
     double t = 0;
@@ -42,8 +49,8 @@ public class Game : State
         {
             ball.go(dt);
             world();
-            plat1.isCollide(ball);
-            plat2.isCollide(ball);
+            plat1.Collide(ball);
+            plat2.Collide(ball);
             goal();
         }
 

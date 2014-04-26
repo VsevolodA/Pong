@@ -2,7 +2,7 @@
 using VitPro;
 using VitPro.Engine;
 
-public class Ball : State
+public class Ball : IRenderable, IUpdateable
 {
     public Vec2 pos;
     public double radius;
@@ -14,14 +14,27 @@ public class Ball : State
         this.pos = pos;
         this.radius = radius;
     }
-
-    public override void Render()
+    
+    public void Render()
     {
         Draw.Circle(pos, radius, color);
     }
 
+    double up = 0;
+    double t = 0;
     public void go(double dt)
     {
-        pos += to * dt * 100;
+        t += dt;
+        pos += to * dt * (120 + up);
+        if (t >= 1)
+        {
+            up += 1;
+            t = 0;
+        }
+    }
+
+    public void Update(double dt)
+    {
+        throw new NotImplementedException();
     }
 }
