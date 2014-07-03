@@ -8,8 +8,9 @@ public class Program
     static void Main(string[] args)
     {
         App.VSync = true;
-        App.Title = "Pong game by VSKA";        
-        
-        App.Run(new Game());        
+        App.Title = "Pong game by VSKA";
+        App.Fullscreen = true;
+        StateManager MyManager = new MyManager(new Game());
+        App.Run(MyManager);
     }
 }

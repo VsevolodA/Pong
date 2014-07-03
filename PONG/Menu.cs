@@ -6,7 +6,7 @@ public class Menu : State
 {
     public override void Render()
     {
-        throw NotImplementedException();    
+        throw new NotImplementedException();    
     }
 
     public override void Update(double dt)

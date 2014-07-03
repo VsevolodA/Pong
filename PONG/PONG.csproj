@@ -60,13 +60,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VPE">
-      <HintPath>..\..\..\..\..\..\..\VPE.dll</HintPath>
+    <Reference Include="VPE, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NinjaRace\NinjaRace\VPE.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Box.cs" />
+    <Compile Include="StateManager.cs" />
     <Compile Include="Controller1.cs" />
     <Compile Include="Controller2.cs" />
     <Compile Include="Game.cs" />
