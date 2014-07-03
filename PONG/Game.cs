@@ -16,7 +16,7 @@ public class Game : State
     public void score()
     {
         Draw.Save();
-        Draw.Translate(new Vec2(-30, 108));
+        Draw.Translate(new Vec2(-20, 108));
         Draw.Scale(12);
         Draw.Color(Color.White);
         font.Render(plat1.score.ToString() + " : " + plat2.score.ToString());
@@ -41,6 +41,12 @@ public class Game : State
     double t = 0;
     override public void Update(double dt)
     {
+
+        if (Key.CapsLock.Pressed())
+        {
+            App.Fullscreen = !App.Fullscreen;
+        }
+
         if (isGoal)
         {
             t += dt;
